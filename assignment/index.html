@@ -10,8 +10,23 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- =====================
-      Add elements in this space
+      Add elements in this space'
       ====================== -->
+    <h1>Mapping Data</h1>
+    <lable id='url-label' for ='url-input'>Data Source</lable>
+    <input id='url-input' type = 'text' placeholder="data source URL here" value="https://raw.githubusercontent.com/CPLN690-MUSA610/datasets/master/json/philadelphia-bike-crashes-snippet.json"></input>
+    <br>
+    <br>
+    <lable id='lat-label' for ='lat-input'>Enter Latitude Key</lable>
+    <input id='lat-input' type = 'text' value = "LAT"></input>
+    <br>
+    <br>
+    <lable id='lng-lable' for = 'lng-input'>Enter Longitude Key</lable>
+    <input id='lng-input' type = 'text' value = "LNG"></input>
+    <br>
+    <br>
+    <button>Plot!</button>
+
     </div>
     <!-- Map -->
     <div id="map" class="map"></div>

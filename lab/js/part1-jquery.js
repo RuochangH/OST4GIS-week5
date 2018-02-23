@@ -172,4 +172,87 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
 // been interpreted. It is, therefore, an example of asynchronous behavior.
 $(document).ready(function() {
   // Do your stuff here
-});
+
+  //Taks 1
+  $('#main-heading').text('Reserve a table!');
+  $('#text-label1').text('What kind of cuisines do you like?');
+  $('#text-label2').text('What is the name of the restaurant?');
+  $('#text-label3').text('Where do you what to have your meal?');
+  $('#number-label').text('How many guest do you have?');
+  $('#checkbox-label1').text('Are you and your guests vegetarians?');
+  $('#checkbox-label2').text('Want bars');
+  $('#color-label').text('What is your preferred lights color during eating');
+  $('button').text('Explore');
+
+  //for task 6
+  $('#number-label2').text('Longitude');
+  $('#number-label3').text('latitude');
+
+  //Task 2
+  $('#text-input1').val('Janpanese');
+  $('#text-input2').val('Chili Szechuan');
+  $('#text-input3').val('University City');
+  $('#numeric-input').val('4');
+  $('#color-input').val('#ffb700');
+  $('#cbox-input1').prop("checked","true");
+
+  //for task 6
+  $('#numeric-input2').val(-75.187455);
+  $('#numeric-input3').val(39.952741);
+
+  //Task 3 / Task 9
+  var form = function(){
+  var restaurant = {
+  type : $('#text-input1').val(),
+  name : $('#text-input2').val(),
+  address : $('#text-input3').val(),
+  guest : $('#numeric-input').val(),
+  light : $('#color-input').val(),
+  vegetarians : $('#cbox-input1').is(':checked'),
+  bars : $('#cbox-input2').is(':checked'),
+  longitude: $('#numeric-input2').val(),
+  latitude: $('#numeric-input3').val()};
+  return restaurant;};
+
+  var defaultRest = {
+    type: "Janpanese",
+    name: "Chili Szechuan",
+    address: "University City",
+    guest: 4,
+    light:"#ffb700",
+    vegetarians: true,
+    bars: false,
+    longitude: -75.187455,
+    latitude: 39.952741};
+
+  //Task 4
+  $('#text-input1').prop('disabled', false);
+  $('#text-input2').prop('disabled', false);
+  $('#text-input3').prop('disabled', false);
+  $('#numeric-input').prop('disabled', false);
+  $('#color-input').prop('disabled', false);
+  $('#cbox-input1').prop('disabled', false);
+  $('#cbox-input2').prop('disabled', false);
+
+  //Task 5 / Task 9
+  $('button').click(function(){
+    var userRestrant = form();
+    if (_.isEqual(userRestrant, defaultRest)===false){
+    console.log("The type of cuisine is " +userRestrant.type);
+    console.log("The name of the restaurant is "+userRestrant.name);
+    console.log("The address of the restaurant is "+userRestrant.address);
+    console.log("There are "+userRestrant.guest+" guest(s) in total");
+    console.log("The preferred color of lights is "+userRestrant.light);
+    console.log("There are vegetarians: "+userRestrant.vegetarians);
+    console.log("Guests need bars: "+userRestrant.bars);
+
+    //Task 6
+    L.circleMarker([userRestrant.latitude,userRestrant.longitude],{'radius':userRestrant.guest,'fillColor':userRestrant.light})
+    .bindPopup("Searching for " + userRestrant.type + " restaurant...").addTo(map);
+
+    //Task 8
+    var myIcon = L.divIcon({className:'my-div-icon',iconSize:[5,5]});
+    var marker = L.marker ([userRestrant.latitude,userRestrant.longitude],{icon:myIcon}).addTo(map);
+        marker.valueOf()._icon.style.backgroundColor = 'green';}
+      });
+    });
