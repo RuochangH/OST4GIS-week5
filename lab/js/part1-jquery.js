@@ -189,16 +189,17 @@ $(document).ready(function() {
   $('#number-label3').text('latitude');
 
   //Task 2
-  $('#text-input1').val('Janpanese');
-  $('#text-input2').val('Chili Szechuan');
-  $('#text-input3').val('University City');
-  $('#numeric-input').val('4');
-  $('#color-input').val('#ffb700');
-  $('#cbox-input1').prop("checked","true");
+  //For Task 9 reading input
+  //$('#text-input1').val('Janpanese');
+  //$('#text-input2').val('Chili Szechuan');
+  //$('#text-input3').val('University City');
+  //$('#numeric-input').val('4');
+  //$('#color-input').val('#ffb700');
+  //$('#cbox-input1').prop("checked","true");
 
   //for task 6
-  $('#numeric-input2').val(-75.187455);
-  $('#numeric-input3').val(39.952741);
+  //$('#numeric-input2').val(-75.187455);
+  //$('#numeric-input3').val(39.952741);
 
   //Task 3 / Task 9
   var form = function(){
