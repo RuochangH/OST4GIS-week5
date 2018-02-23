@@ -15,11 +15,12 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
   ext: 'png'
 }).addTo(map);
 
-var url = $('#url-input').val();
-var lat = $('#lat-input').val();
-var lng = $('#lng-input').val();
+
 
 $('button').click(function(){
+  var url = $('#url-input').val();
+  var lat = $('#lat-input').val();
+  var lng = $('#lng-input').val();
   var downloadData = $.ajax(url);
   var parseData =function(data) { var parsed = JSON.parse(data); return parsed;};
   var makeMarkers = function(parsed) { var markers = [];
